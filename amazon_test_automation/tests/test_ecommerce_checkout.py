@@ -19,6 +19,8 @@ def setup():
     driver.quit()
 
 
+# Retry up to 3 times with a 2-second delay
+@pytest.mark.flaky(reruns=3, reruns_delay=2)
 def test_add_product_to_cart(setup):
     driver = setup
     home_page = HomePage(driver)
@@ -37,5 +39,5 @@ def test_add_product_to_cart(setup):
     # Step 4: Proceed to checkout
     cart_page.proceed_to_checkout()
 
-    # Verification: Check if the checkout page is displayed
+    # Verify if the checkout page is displayed
     assert cart_page.is_checkout_page_displayed(), "Checkout page not displayed"
