@@ -76,3 +76,8 @@ To generate and view Allure reports:
 
 # Serve the Allure report on a local server
 allure serve reports/
+
+
+### Bonus Features
+- **Retry Logic**: Implemented retry logic for flaky tests using the `pytest-rerunfailures` plugin, which retries failed tests a specified number of times.
+
